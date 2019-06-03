@@ -21,7 +21,7 @@ defmodule Forcex.Mixfile do
         "coveralls.html": :test,
         "coveralls.post": :test,
         docs: :dev,
-        "hex.docs": :dev,
+        "hex.docs": :dev
       ],
       dialyzer: [
         plt_add_deps: :transitive,
@@ -36,12 +36,12 @@ defmodule Forcex.Mixfile do
         ]
       ],
       deps: deps(),
-      elixirc_paths: elixirc_paths(Mix.env)
-   ]
+      elixirc_paths: elixirc_paths(Mix.env())
+    ]
   end
 
   defp elixirc_paths(:test), do: ["test/support", "lib"]
-  defp elixirc_paths(_),     do: ["lib"]
+  defp elixirc_paths(_), do: ["lib"]
 
   # Configuration for the OTP application
   #
@@ -63,7 +63,7 @@ defmodule Forcex.Mixfile do
     [
       {:httpoison, "~> 0.13 or ~> 1.0"},
       {:exjsx, "< 5.0.0"},
-      {:poison, "~> 2.0 or ~> 3.1"},
+      {:poison, "~> 2.0 or ~> 3.1 or ~> 4.0"},
       {:timex, "~> 2.0 or ~> 3.0"},
       {:erlsom, "~> 1.4"},
       {:excoveralls, "~> 0.5", only: :test},
@@ -77,8 +77,10 @@ defmodule Forcex.Mixfile do
   end
 
   defp package do
-    [maintainers: ["Jeff Weiss", "Matt Robinson"],
+    [
+      maintainers: ["Jeff Weiss", "Matt Robinson"],
       licenses: ["MIT"],
-      links: %{"Github" => "https://github.com/jeffweiss/forcex"}]
+      links: %{"Github" => "https://github.com/jeffweiss/forcex"}
+    ]
   end
 end
